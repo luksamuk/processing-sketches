@@ -1,0 +1,99 @@
+% Pacotes necessários
+\documentclass[oneside,a4paper]{abntex2}       % Documento de classe ABNT
+\usepackage[utf8]{inputenc}            % Codificação UTF-8
+\usepackage[T1]{fontenc}               % Mais pacotes de caracteres
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+
+% PREÂMBULO: Especificações gerais entram aqui.
+\titulo{Trabalho Prático de CG/PDI\\N.A.G.A.I.}
+\autor{Lucas Samuel Vieira\\24072}
+\data{\today}
+\instituicao{Universidade Federal de Itajubá - Campus Itabira}
+\local{Itabira}
+
+% INÍCIO DO DOCUMENTO
+\begin{document}
+
+\imprimircapa
+
+\chapter{Objetivo e preparação}
+O objetivo do trabalho é construir um \textit{PDA} (\textit{Personal Digital Assistant}, ou Assistente Pessoal Digital, em Português) para auxílio e uso diários, utilizando-se do poder computacional de reconhecimento de imagens (especificamente, rostos). Além disso, tornou-se conveniente que o aplicativo se parecesse o máximo possível com uma interface inteligente, e que não parecesse feita para um desktop em si, mas sim para uma tela projetada em um lugar incomum (como mesas, espelhos mágicos, vidros e paredes).\\
+Para tanto, tirou-se inspiração de animações de filmes (como \textit{Iron Man}) e também de tecnologias atualmente existentes.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{magic_mirror.jpg}
+\caption{Exemplo de espelho mágico. Obtido em: \url{http://michaelteeuw.nl/post/111886383522/magic-mirrors-around-the-world}}
+\end{figure}
+\chapter{Telas do programa}
+Neste aplicativo, foram utilizadas as linguagens \textit{Processing} e \textit{Java}, combinados à biblioteca \textit{OpenCV} (\textit{Open Computer Vision}), para reconhecer quando o usuário se aproximasse do computador. Através da webcam, o aplicativo tem o poder de detectar faces; utilizando-se disso, o mesmo bloqueia ou desbloqueia a tela, alternando entre uma tela apropriada de bloqueio, e uma interface similar a uma área de trabalho.\\
+\textbf{NOTA:} Para melhor visualização, os exemplos a seguir não exibem a imagem da câmera ao fundo, e sim uma cor sólida azul.
+
+\section{Tela de bloqueio}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{lockscreen.png}
+\caption{Tela de bloqueio.}
+\end{figure}
+
+Esta tela é exibida quando o usuário não pôde ser detectado em frente à câmera.\\
+O aplicativo entra em um estado de bloqueio, exibindo apenas a temperatura e a cidade atuais, além de um aviso amigável, para que o usuário se posicione em frente à câmera para, assim, desbloquear a tela.
+
+\section{Tela principal}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{homescreen.png}
+\caption{Tela principal.}
+\end{figure}
+
+Trata-se da tela de boas-vindas do programa. Nesta dela, podem ser observados um texto igualmente de boas-vindas, bem como a versão do aplicativo (atualmente na versão \textit{0.1 beta}), e um \textbf{\textit{dock}} na parte inferior, que pode ser utilizado através do mouse e cliques, de onde podem ser acessados painéis com informações relevantes.
+
+\section{Painéis}
+Os painéis são pequenas janelas que exibem informações relevantes, ou ferramentas interessantes.\\
+Há quatro painéis diferentes nesta versão, cada um com sua função específica.
+
+\subsection{Painel do Console SSH}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{sshscreen.png}
+\caption{Simulação estática de um Console SSH.}
+\end{figure}
+
+Simula uma tela com um console Unix e uma sessão SSH.
+
+\subsection{Painel de Temperatura e Previsão do Tempo}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{weatherscreen.png}
+\caption{Painel de informações sobre o clima.}
+\end{figure}
+
+Recebe informações reais de clima das cidades de \textit{Itabira}, \textit{Belo Horizonte}, \textit{Diamantina} e \textit{Montes Claros}, respectivamente.\\
+O recebimento destas informações é feito a partir de uma biblioteca para a linguagem \textit{Processing}, e exigem acesso à internet.
+
+\subsection{Painel de Horário}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{clockscreen.png}
+\caption{Painel de relógio e horários.}
+\end{figure}
+
+Exibe informações sobre o horário real atual, e calcula o horário previsto em outros fusos horários.\\
+O programa assume que o fuso horário atual é o de Brasília, por padrão, e realiza cálculos partindo dessa informação.
+
+\subsection{Painel de Informações do Sistema}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{computerscreen.png}
+\caption{Painel do Sistema.}
+\end{figure}
+
+Exibe informações sobre o sistema (nome e versão da máquina ou do seu kernel, arquitetura e uso do CPU).
+
+\chapter{Conclusão}
+A Internet das Coisas (\textit{Internet of Things}) é, sem dúvida, um dos novos tópicos de computação em ascensão, atualmente. Sendo assim, assistentes inteligentes, especialmente exibidos em lugares incomuns, e conectados a outros eletrônicos espalhados pela casa, tornar-se-ão extremamente úteis nos próximos anos. Um pequeno e simples programa com capacidade de obter dados de manchetes relevantes de canais RSS (como o \textit{Google Notícias}) e exibi-los, por exemplo, no espelho do banheiro, pode ser extremamente útil a quem faz a barba ou cuida de sua higiene pessoal; se dados a este dispositivo, também, a capacidade de reconhecer rostos e fala, torna-se ainda mais útil e interessante. Esta tecnologia, porém, é tida, muitas vezes, como irrelevante ou desnecessária.\\Felizmente, ao longo do tempo, será uma vantagem incorporada aos poucos ao dia-a-dia, de forma imperceptível, assim como smartphones e telas de toque, e poderá trazer mais facilidade para a vida do usuário comum; o adjetivo \textit{"poweruser"} poderá ser dado não só àqueles que usam atalhos para tarefas rápidas em um computador, mas também aos que usam o próprio celular, ou uma outra interface inteligente, para executar tarefas rapidamente em sua casa inteira.\\
+Criar uma interface minimalista e intuitiva não é um trabalho simples, mas, quando feita com cuidado, pode dar o poder da informação mesmo a usuários leigos.
+
+%FIM DO DOCUMENTO
+\end{document}
